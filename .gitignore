@@ -1,0 +1,10 @@
+# Claude Code
+.claude/
+
+# MicroPico stubs (auto-generated)
+.micropico_stubs/
+typings/
+
+# Python cache
+__pycache__/
+*.pyc
