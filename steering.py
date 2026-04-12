@@ -8,9 +8,9 @@ pot = ADC(Pin(26))
 # Switch connects GP16 to GND when on → reads LOW when on
 engine_switch = Pin(16, Pin.IN, Pin.PULL_UP)
 
-def read_steering():
-    """Return pot value mapped to -32767..32767 for HID axis."""
-    raw = pot.read_u16()  # 0..65535
+def read_steering(samples=8):
+    """Return averaged pot value mapped to -32767..32767 for HID axis."""
+    raw = sum(pot.read_u16() for _ in range(samples)) // samples
     return raw - 32768
 
 def engine_on():
