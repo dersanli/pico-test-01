@@ -45,5 +45,5 @@ gamepad = None
 def init():
     import usb.device
     gamepad = GamepadHID()
-    usb.device.get().init(gamepad, builtin_driver=True)
+    usb.device.get().init(gamepad, builtin_driver=True, product_str="DevoStick")
     return gamepad
